@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040D1A"/>
+      <stop offset="50%" stop-color="#0A1E36"/>
+      <stop offset="100%" stop-color="#0F2D54"/>
+    </linearGradient>
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="accent-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(30, 41, 59, 0.8)"/>
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.9)"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+
+  <!-- Subtle Medical Grid Lines -->
+  <g opacity="0.10" stroke="#38BDF8" stroke-width="1">
+    <line x1="0" y1="90" x2="1200" y2="90"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+
+  <!-- Left Header Content -->
+  <g transform="translate(80, 80)">
+    <!-- Pill Badge -->
+    <rect width="360" height="34" rx="17" fill="rgba(6, 182, 212, 0.15)" stroke="#06B6D4" stroke-width="1.2"/>
+    <circle cx="16" cy="17" r="5" fill="#38BDF8"/>
+    <text x="32" y="22" fill="#38BDF8" font-size="13" font-family="system-ui, -apple-system, sans-serif" font-weight="700" letter-spacing="1">WAY #51 &#8226; PRODUCT 53 MASTER SUITE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="85" fill="#FFFFFF" font-size="44" font-family="system-ui, -apple-system, sans-serif" font-weight="800" letter-spacing="-0.5">Clinical Social Media &amp;</text>
+    <text x="0" y="135" fill="url(#accent-cyan)" font-size="44" font-family="system-ui, -apple-system, sans-serif" font-weight="800" letter-spacing="-0.5">Medical Content Suite</text>
+    <text x="0" y="180" fill="#94A3B8" font-size="20" font-family="system-ui, -apple-system, sans-serif" font-weight="500">Evidence-Based Calendars &#8226; HIPAA Guard &#8226; Multi-Channel Webhooks</text>
+
+    <!-- Key Bullets -->
+    <g transform="translate(0, 220)">
+      <circle cx="8" cy="10" r="4" fill="#38BDF8"/>
+      <text x="24" y="15" fill="#E2E8F0" font-size="15" font-family="system-ui, sans-serif" font-weight="600">100% Peer-Reviewed Evidence (PubMed, JAMA, NEJM, Lancet)</text>
+
+      <circle cx="8" cy="45" r="4" fill="#38BDF8"/>
+      <text x="24" y="50" fill="#E2E8F0" font-size="15" font-family="system-ui, sans-serif" font-weight="600">Multi-Channel 30-Day Calendar (LinkedIn, IG, X, FB, YT Community)</text>
+
+      <circle cx="8" cy="80" r="4" fill="#38BDF8"/>
+      <text x="24" y="85" fill="#E2E8F0" font-size="15" font-family="system-ui, sans-serif" font-weight="600">Pre-Publish HIPAA Safe Harbor PHI &amp; Statutory Disclaimer Guard</text>
+
+      <circle cx="8" cy="115" r="4" fill="#38BDF8"/>
+      <text x="24" y="120" fill="#E2E8F0" font-size="15" font-family="system-ui, sans-serif" font-weight="600">Edge Webhook Dispatcher &amp; $500-$3,000 Clinic Retainers</text>
+    </g>
+
+    <!-- Pricing Badges -->
+    <g transform="translate(0, 390)">
+      <rect width="180" height="52" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#334155" stroke-width="1.5"/>
+      <text x="18" y="24" fill="#94A3B8" font-size="12" font-family="system-ui, sans-serif" font-weight="600">SINGLE PACK</text>
+      <text x="18" y="44" fill="#38BDF8" font-size="18" font-family="system-ui, sans-serif" font-weight="800">$9 / &#8377;750</text>
+
+      <rect x="200" width="220" height="52" rx="10" fill="url(#accent-blue)" stroke="#93C5FD" stroke-width="1.5"/>
+      <text x="218" y="24" fill="#EFF6FF" font-size="12" font-family="system-ui, sans-serif" font-weight="800">MASTER SUITE (ALL PACKS)</text>
+      <text x="218" y="44" fill="#FFFFFF" font-size="18" font-family="system-ui, sans-serif" font-weight="900">$19 / &#8377;1,599</text>
+    </g>
+  </g>
+
+  <!-- Right Visual Mockup: Social Post & Compliance Card -->
+  <g transform="translate(680, 80)" filter="url(#shadow)">
+    <!-- Outer Container -->
+    <rect width="440" height="470" rx="16" fill="url(#card-grad)" stroke="#1E293B" stroke-width="2"/>
+    
+    <!-- Header Bar -->
+    <rect width="440" height="50" rx="16" fill="#0F172A"/>
+    <circle cx="28" cy="25" r="6" fill="#EF4444"/>
+    <circle cx="48" cy="25" r="6" fill="#F59E0B"/>
+    <circle cx="68" cy="25" r="6" fill="#10B981"/>
+    <text x="100" y="30" fill="#94A3B8" font-size="13" font-family="system-ui, sans-serif" font-weight="600">Clinical Calendar &#8226; HIPAA Verified</text>
+
+    <!-- Post Mockup Inside Container -->
+    <g transform="translate(30, 75)">
+      <rect width="380" height="260" rx="8" fill="#070F1E" stroke="#1E293B" stroke-width="1.5"/>
+      
+      <!-- Top Clinical Tag -->
+      <rect x="16" y="16" width="160" height="24" rx="4" fill="rgba(56, 189, 248, 0.15)"/>
+      <text x="24" y="32" fill="#38BDF8" font-size="11" font-weight="700">PREVENTIVE CARDIOLOGY</text>
+
+      <!-- Post Headline -->
+      <text x="16" y="65" fill="#FFFFFF" font-size="13" font-weight="700">LDL Particle Burden &amp; ASCVD Risk</text>
+      <text x="16" y="88" fill="#94A3B8" font-size="11">In ASCVD, ApoB concentration directly governs</text>
+      <text x="16" y="106" fill="#94A3B8" font-size="11">atherogenic plaque accumulation in coronary endothelium.</text>
+      
+      <!-- Citation Box -->
+      <rect x="16" y="125" width="348" height="50" rx="6" fill="#0D1E38" stroke="#1E293B"/>
+      <text x="26" y="145" fill="#34D399" font-size="10" font-weight="700">EVIDENCE CITATION (AHA/ACC Guidelines 2019)</text>
+      <text x="26" y="162" fill="#64748B" font-size="10">Circulation / JACC &#8226; DOI: 10.1161/CIR.0000000000000678</text>
+
+      <!-- Disclaimer & Status Footer -->
+      <rect y="195" width="380" height="65" rx="8" fill="#09182E"/>
+      <text x="16" y="218" fill="#10B981" font-size="11" font-weight="700">&#x2713; HIPAA COMPLIANT (0 PHI DETECTED)</text>
+      <text x="16" y="238" fill="#64748B" font-size="9">Statutory medical disclaimer verified. Approved for edge dispatch.</text>
+    </g>
+
+    <!-- Metrics Footer Inside Card -->
+    <g transform="translate(30, 360)">
+      <rect width="180" height="75" rx="8" fill="#070F1E" stroke="#1E293B"/>
+      <text x="15" y="26" fill="#64748B" font-size="11" font-family="system-ui, sans-serif" font-weight="600">MONTHLY REACH</text>
+      <text x="15" y="55" fill="#38BDF8" font-size="22" font-family="system-ui, sans-serif" font-weight="800">42,000+</text>
+
+      <rect x="200" width="180" height="75" rx="8" fill="#070F1E" stroke="#1E293B"/>
+      <text x="215" y="26" fill="#64748B" font-size="11" font-family="system-ui, sans-serif" font-weight="600">PATIENT BOOKINGS</text>
+      <text x="215" y="55" fill="#10B981" font-size="22" font-family="system-ui, sans-serif" font-weight="800">+28 / MONTH</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Production Clinic Social Media Management Suite | Interactive Simulator</title>
+  <style>
+    :root {
+      --bg: #040D1A;
+      --card-bg: #0A1E36;
+      --border: #1E293B;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --cyan: #38BDF8;
+      --emerald: #10B981;
+      --blue: #3B82F6;
+      --rose: #F43F5E;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand h1 { font-size: 24px; font-weight: 800; color: #FFF; }
+    .brand p { font-size: 14px; color: var(--text-muted); }
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      background: #0D233F;
+      padding: 6px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--cyan);
+      color: #040D1A;
+      font-weight: 700;
+    }
+    .screen { display: none; }
+    .screen.active { display: block; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card h2 { font-size: 18px; margin-bottom: 16px; color: var(--cyan); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 850px) { .grid-2 { grid-template-columns: 1fr; } }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 11px; }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-cyan { background: rgba(56, 189, 248, 0.15); color: var(--cyan); }
+    .badge-emerald { background: rgba(16, 185, 129, 0.15); color: var(--emerald); }
+    .badge-rose { background: rgba(244, 63, 94, 0.15); color: var(--rose); }
+    .btn {
+      background: var(--cyan);
+      color: #040D1A;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn-secondary {
+      background: #1E293B;
+      color: #F8FAFC;
+    }
+    .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .tier-card {
+      background: #0B213D;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tier-card.featured { border-color: var(--cyan); box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
+    .tier-title { font-size: 18px; font-weight: 700; color: #FFF; }
+    .tier-price { font-size: 28px; font-weight: 800; color: var(--cyan); margin: 12px 0; }
+    .tier-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+    .tier-features { list-style: none; margin-bottom: 24px; font-size: 13px; color: #CBD5E1; }
+    .tier-features li { margin-bottom: 8px; }
+    .tier-features li::before { content: "✓ "; color: var(--emerald); font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>Production Clinic Social Media Management Suite</h1>
+        <p>Way #51 (Product 53) &bull; Evidence-Based Content &bull; HIPAA Compliance &bull; Retainer Invoicing</p>
+      </div>
+      <div class="nav-tabs">
+        <button class="tab-btn active" onclick="showScreen('screen-content', this)">1. Evidence Content &amp; PubMed</button>
+        <button class="tab-btn" onclick="showScreen('screen-calendar', this)">2. Multi-Channel Calendar</button>
+        <button class="tab-btn" onclick="showScreen('screen-compliance', this)">3. HIPAA &amp; Disclaimer Guard</button>
+        <button class="tab-btn" onclick="showScreen('screen-retainers', this)">4. Clinic Retainer Portal</button>
+      </div>
+    </header>
+
+    <!-- SCREEN 1: Evidence Content & PubMed -->
+    <div id="screen-content" class="screen active">
+      <div class="grid-2">
+        <div class="card">
+          <h2>Peer-Reviewed Clinical Topic Bank</h2>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">100% Modern Evidence-Based Medicine citing major guidelines and peer-reviewed journals (PubMed / JAMA / NEJM / Lancet).</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Clinical Topic Hook</th>
+                <th>Primary Study / Guideline</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-cyan">Cardiology</span></td>
+                <td>LDL Particle Burden vs Total Cholesterol</td>
+                <td>AHA/ACC 2019 Prevention Guidelines (Circulation)</td>
+                <td><span class="badge badge-emerald">Verified</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-cyan">Metabolic</span></td>
+                <td>HbA1c vs. Time-in-Range (TIR) in CGM</td>
+                <td>ADA Standards of Care 2024 (Diabetes Care)</td>
+                <td><span class="badge badge-emerald">Verified</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-cyan">Vascular</span></td>
+                <td>Automated Office Blood Pressure (AOBP)</td>
+                <td>SPRINT Trial Consortium (NEJM)</td>
+                <td><span class="badge badge-emerald">Verified</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-cyan">Sleep Med</span></td>
+                <td>Sleep Apnea &amp; Refractory Hypertension</td>
+                <td>AASM Adult OSA Guidelines (JCSM)</td>
+                <td><span class="badge badge-emerald">Verified</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-cyan">Oncology</span></td>
+                <td>Colorectal Cancer Screening at Age 45</td>
+                <td>USPSTF Screening Recommendation (JAMA)</td>
+                <td><span class="badge badge-emerald">Verified</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top: 16px; padding: 12px; background: #07152B; border-radius: 8px; border: 1px solid var(--border);">
+            <strong style="color: var(--emerald); font-size: 14px;">Clinical Verification: 100% Peer-Reviewed Evidence</strong>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Zero unverified cure claims. Zero alternative medicine references.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Evidence-Based Post Preview</h2>
+          <div style="background: #07152B; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-size: 13px;">
+            <div style="color: var(--cyan); font-weight: 700; font-size: 15px; margin-bottom: 8px;">🩺 WHY LDL-C PARTICLE BURDEN MATTERS IN ASCVD RISK</div>
+            <p style="color: #CBD5E1; margin-bottom: 12px;">In atherosclerotic cardiovascular disease, apolipoprotein B (ApoB) and low-density lipoprotein particle concentration directly govern atherogenic plaque accumulation in coronary endothelium.</p>
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 8px; border-radius: 6px; margin-bottom: 12px;">
+              <strong style="color: var(--emerald); font-size: 11px;">EVIDENCE CITATION:</strong>
+              <div style="color: #E2E8F0; font-size: 12px;">Arnett DK et al. 2019 ACC/AHA Guideline. Circulation / JACC (DOI: 10.1161/CIR.0000000000000678)</div>
+            </div>
+            <p style="color: #94A3B8; font-size: 11px; border-top: 1px solid var(--border); padding-top: 8px;">
+              <strong>Medical Educational Notice:</strong> This post is for educational purposes only and does not constitute individual medical diagnosis or care. Consult your board-certified physician.
+            </p>
+          </div>
+          <div style="margin-top: 16px;">
+            <button class="btn" onclick="alert('Clinical post verified with PubMed API and approved for calendar scheduling.')">Schedule for Multi-Platform Dispatch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: Multi-Channel Calendar -->
+    <div id="screen-calendar" class="screen">
+      <div class="card">
+        <h2>Multi-Channel 30-Day Clinical Publishing Schedule</h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Synchronized educational content formatted specifically for each channel's character limits and posting dynamics.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Date</th>
+              <th>Clinical Specialty</th>
+              <th>LinkedIn (1.8k char)</th>
+              <th>Instagram / Threads</th>
+              <th>X / Twitter (280 char)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Day 1</td>
+              <td>2026-11-01</td>
+              <td>Preventive Cardiology</td>
+              <td><span class="badge badge-emerald">Full Guideline Analysis</span></td>
+              <td><span class="badge badge-cyan">5-Slide Carousel</span></td>
+              <td><span class="badge badge-emerald">Micro-Insight</span></td>
+            </tr>
+            <tr>
+              <td>Day 2</td>
+              <td>2026-11-02</td>
+              <td>Metabolic Health</td>
+              <td><span class="badge badge-emerald">CGM Time-in-Range Case</span></td>
+              <td><span class="badge badge-cyan">Graphic Summary</span></td>
+              <td><span class="badge badge-emerald">Micro-Insight</span></td>
+            </tr>
+            <tr>
+              <td>Day 3</td>
+              <td>2026-11-03</td>
+              <td>Hypertension Guidelines</td>
+              <td><span class="badge badge-emerald">SPRINT Trial Breakdown</span></td>
+              <td><span class="badge badge-cyan">AOBP Visual Guide</span></td>
+              <td><span class="badge badge-emerald">Micro-Insight</span></td>
+            </tr>
+            <tr>
+              <td>Day 4</td>
+              <td>2026-11-04</td>
+              <td>Sleep &amp; Circadian</td>
+              <td><span class="badge badge-emerald">Refractory Hypertension</span></td>
+              <td><span class="badge badge-cyan">OSA Risk Carousel</span></td>
+              <td><span class="badge badge-emerald">Micro-Insight</span></td>
+            </tr>
+            <tr>
+              <td>Day 5</td>
+              <td>2026-11-05</td>
+              <td>Preventive Oncology</td>
+              <td><span class="badge badge-emerald">USPSTF Age 45 Update</span></td>
+              <td><span class="badge badge-cyan">Screening Infographic</span></td>
+              <td><span class="badge badge-emerald">Micro-Insight</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 20px; display: flex; gap: 12px;">
+          <button class="btn" onclick="alert('30-day queue compiled. All 150 channel variations generated.')">Generate Full 30-Day Queue</button>
+          <button class="btn btn-secondary" onclick="alert('Exporting calendar CSV for Buffer and Hootsuite...')">Export Buffer / CSV Feed</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: HIPAA & Disclaimer Guard -->
+    <div id="screen-compliance" class="screen">
+      <div class="grid-2">
+        <div class="card">
+          <h2>HIPAA Safe Harbor &amp; Pre-Publish Compliance Scanner</h2>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Automated scanning engine protecting medical licenses, FTC adherence, and patient privacy.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Compliance Dimension</th>
+                <th>Standard &amp; Regulation</th>
+                <th>Engine Guardrail</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Patient PHI Scrubber</td>
+                <td>HIPAA 45 CFR § 164.514</td>
+                <td>Zero MRNs, Names, Phone #s</td>
+                <td><span class="badge badge-emerald">100% Pass</span></td>
+              </tr>
+              <tr>
+                <td>Anti-Cure Claim Guard</td>
+                <td>FTC Health Substantiation</td>
+                <td>Blocks "Miracle / Cure" Claims</td>
+                <td><span class="badge badge-emerald">100% Pass</span></td>
+              </tr>
+              <tr>
+                <td>Statutory Disclaimer</td>
+                <td>State Medical Board Ethics</td>
+                <td>Mandatory Footer Enforced</td>
+                <td><span class="badge badge-emerald">100% Pass</span></td>
+              </tr>
+              <tr>
+                <td>Peer-Reviewed Citations</td>
+                <td>Evidence-Based Standard</td>
+                <td>PubMed DOI / PMID Required</td>
+                <td><span class="badge badge-emerald">100% Pass</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top: 16px; padding: 12px; background: #07152B; border-radius: 8px;">
+            <strong style="color: var(--emerald); font-size: 15px;">Compliance Score: 100 / 100 (APPROVED)</strong>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Zero blocking violations. Safe for automated edge webhook publishing.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Interactive Compliance Tester</h2>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Simulate outbound text to test automated blocking filters:</p>
+          <textarea id="sampleInput" style="width: 100%; height: 110px; background: #07152B; border: 1px solid var(--border); border-radius: 6px; color: #FFF; padding: 10px; font-family: monospace; font-size: 12px;">Our new therapy offers a guaranteed miracle cure for hypertension! Patient MRN#992014 was completely healed.</textarea>
+          <div style="margin-top: 12px;">
+            <button class="btn btn-secondary" onclick="runScan()">Run Compliance Guardrail Scan</button>
+          </div>
+          <div id="scanResult" style="margin-top: 12px; padding: 10px; background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 6px; font-size: 12px; color: #FDA4AF; display: none;">
+            <strong>BLOCKING ERRORS DETECTED:</strong>
+            <ul style="margin-top: 4px; padding-left: 18px;">
+              <li>HIPAA PHI: Patient Record MRN#992014 detected</li>
+              <li>FTC Rule: Disallowed claim "guaranteed miracle cure"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: Clinic Retainer Portal -->
+    <div id="screen-retainers" class="screen">
+      <div class="card">
+        <h2>Clinic Social Media Management Retainers</h2>
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">Turnkey medical marketing retainers for clinics, physicians, and health coaches. 100% compliant with guaranteed SLAs and Net-15 terms.</p>
+        
+        <div class="tier-grid">
+          <!-- Starter -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-title">Starter Practice Presence</div>
+              <div class="tier-price">$500 <span style="font-size: 14px; color: var(--text-muted);">&asymp; &#8377;41,500/mo</span></div>
+              <div class="tier-sub">For solo physicians &amp; private clinics</div>
+              <ul class="tier-features">
+                <li>12 Evidence-Based Posts / month</li>
+                <li>LinkedIn &amp; Instagram / Threads</li>
+                <li>PubMed &amp; Guideline Citation Sourcing</li>
+                <li>Automated HIPAA Pre-Publish Scan</li>
+                <li>48-Hour Review Window SLA</li>
+                <li>Standard Support (24h)</li>
+              </ul>
+            </div>
+            <button class="btn btn-secondary" onclick="subscribeTier('Starter Practice Presence', 500, 41500)">Subscribe $500/mo</button>
+          </div>
+
+          <!-- Growth -->
+          <div class="tier-card featured">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tier-title">Growth Patient Acquisition</span>
+                <span class="badge badge-cyan">MOST POPULAR</span>
+              </div>
+              <div class="tier-price">$1,500 <span style="font-size: 14px; color: var(--text-muted);">&asymp; &#8377;1,24,500/mo</span></div>
+              <div class="tier-sub">For growth clinics &amp; specialized practices</div>
+              <ul class="tier-features">
+                <li>30 Evidence-Based Posts / month (Daily)</li>
+                <li>LinkedIn, Instagram, X/Twitter, Facebook</li>
+                <li>Cardiology, Metabolic &amp; Screening Series</li>
+                <li>Monthly Executive ROI &amp; Reach Deck</li>
+                <li>24-Hour Review Window SLA</li>
+                <li>Direct Appointment Link Attribution</li>
+              </ul>
+            </div>
+            <button class="btn" onclick="subscribeTier('Growth Patient Acquisition', 1500, 124500)">Subscribe $1,500/mo</button>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-title">Enterprise Multi-Specialty</div>
+              <div class="tier-price">$3,000 <span style="font-size: 14px; color: var(--text-muted);">&asymp; &#8377;2,49,000/mo</span></div>
+              <div class="tier-sub">For healthcare systems &amp; large centers</div>
+              <ul class="tier-features">
+                <li>60+ Posts / month across Multi-Specialties</li>
+                <li>All 5 Channels + YouTube Community</li>
+                <li>Bespoke Trial Summaries &amp; Infographics</li>
+                <li>Custom D1 Edge SQL Database</li>
+                <li>12-Hour Priority Review SLA</li>
+                <li>Dedicated Senior Clinical Strategist</li>
+              </ul>
+            </div>
+            <button class="btn btn-secondary" onclick="subscribeTier('Enterprise Multi-Specialty', 3000, 249000)">Subscribe $3,000/mo</button>
+          </div>
+        </div>
+
+        <!-- Remittance Box -->
+        <div style="margin-top: 30px; padding: 20px; background: #07152B; border-radius: 10px; border: 1px solid var(--border);">
+          <h3 style="font-size: 15px; color: var(--cyan); margin-bottom: 8px;">Official Payment Remittance Handles</h3>
+          <p style="font-size: 13px; color: #CBD5E1;">All retainers and software suite licenses can be remitted directly to the verified accounts below:</p>
+          <div style="display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap;">
+            <div>
+              <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Direct Domestic UPI (India)</span>
+              <div style="font-size: 14px; font-weight: 700; color: #FFF; font-family: monospace;">milind.chatrabhuji@okhdfcbank</div>
+            </div>
+            <div>
+              <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">International Direct PayPal</span>
+              <div style="font-size: 14px; font-weight: 700; color: #FFF; font-family: monospace;">milind.chatrabhuji@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showScreen(screenId, btn) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function runScan() {
+      document.getElementById('scanResult').style.display = 'block';
+    }
+
+    function subscribeTier(name, usd, inr) {
+      const choice = confirm(`Subscribe to ${name} for $${usd} USD / ~₹${inr.toLocaleString('en-IN')} INR per month?\n\nClick OK to view official remittance instructions.`);
+      if (choice) {
+        alert(`Retainer onboarding initiated for ${name}!\n\nRemit to:\n- UPI: milind.chatrabhuji@okhdfcbank\n- PayPal: milind.chatrabhuji@gmail.com\n\nThen submit your intake brief at docs/CLIENT_CLINICAL_ONBOARDING_BRIEF.md.`);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "@income-engine/edge-social-gateway",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers edge publishing and performance analytics gateway for clinical social media management, multi-platform webhook dispatching, and engagement reporting.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "social-media-gateway",
+    "webhook-publisher",
+    "engagement-analytics",
+    "clinical-social-roi",
+    "svg-charts"
+  ],
+  "author": "Dr. Milind Chatrabhuji",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240208.0",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.28.0"
+  }
+}

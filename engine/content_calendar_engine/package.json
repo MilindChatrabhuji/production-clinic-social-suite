@@ -1,0 +1,25 @@
+{
+  "name": "@income-engine/content-calendar-engine",
+  "version": "1.0.0",
+  "description": "Production medical content generator, multi-platform publishing calendar, and pre-publish HIPAA/medical compliance guardian for clinics, physicians, and certified healthcare practitioners.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/index.js"
+  },
+  "keywords": [
+    "medical-content-generator",
+    "clinical-content-calendar",
+    "hipaa-compliance-scanner",
+    "evidence-based-medicine",
+    "multi-platform-publishing",
+    "physician-social-media"
+  ],
+  "author": "Dr. Milind Chatrabhuji",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.0"
+  }
+}
